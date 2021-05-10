@@ -40,7 +40,7 @@
                     <li class="nav-item active"><a href="<?= base_url('front/'); ?>" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="<?= base_url('front/about'); ?>" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="<?= base_url('front/rusun'); ?>" class="nav-link">Rusun</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="<?= base_url('auth/'); ?>" class="nav-link">Login</a></li>
                 </ul>
             </div>
         </div>
