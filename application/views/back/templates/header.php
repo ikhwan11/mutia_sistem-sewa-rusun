@@ -18,6 +18,9 @@
     <link href="<?= base_url('assets/backend'); ?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?= base_url('assets/backend'); ?>/demo/demo.css" rel="stylesheet" />
+
+    <!-- mod -->
+    <link href="<?= base_url('assets/'); ?>mod/style.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -38,6 +41,62 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "unit") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url('unit/'); ?>">
+                            <i class="far fa-building"></i>
+                            <p>Kelola unit</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url(''); ?>">
+                            <i class="tim-icons icon-badge"></i>
+                            <p>Kelola pelanggan</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url(''); ?>">
+                            <i class="tim-icons icon-money-coins"></i>
+                            <p>Transaksi</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url(''); ?>">
+                            <i class="tim-icons icon-email-85"></i>
+                            <p>Kotak masuk</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url(''); ?>">
+                            <i class="tim-icons icon-tv-2"></i>
+                            <p>Berita</p>
+                        </a>
+                    </li>
+
                     <li class="
                     <?php if ($this->uri->segment(1) == "user") {
                         echo "active";
@@ -46,6 +105,17 @@
                         <a href="<?= base_url('user/'); ?>">
                             <i class="tim-icons icon-single-02"></i>
                             <p>Kelola User</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url(''); ?>">
+                            <i class="tim-icons icon-single-copy-04"></i>
+                            <p>Laporan</p>
                         </a>
                     </li>
                 </ul>

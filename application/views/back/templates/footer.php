@@ -11,6 +11,7 @@
 </footer>
 </div>
 </div>
+<!-- mod -->
 
 <!--   Core JS Files   -->
 <script src="<?= base_url('assets/backend'); ?>/js/core/jquery.min.js"></script>
