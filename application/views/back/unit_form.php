@@ -8,17 +8,15 @@
                 </div>
                 <div class="card-body">
                     <div class="container">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="<?= base_url('unit/tambah_aksi'); ?>" method="POST">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group text-white">
                                         <label>wilayah :</label>
                                         <select class="form-control" id="wilayah" name="wilayah">
-                                            <option value="1" class="text-dark">Rusun Sekupang</option>
-                                            <option value="2" class="text-dark">Rusun Tanjung Ucang</option>
-                                            <option value="3" class="text-dark">Rusun Muka Kuning</option>
-                                            <option value="4" class="text-dark">Rusun Kabil</option>
-                                            <option value="5" class="text-dark">Rusun Batu Ampar</option>
+                                            <?php foreach ($rusun as $rn) : ?>
+                                                <option value="<?= $rn['id_rusun']; ?>" class="text-dark"><?= $rn['wilayah']; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -38,19 +36,15 @@
                                     <div class="form-group text-white">
                                         <label>Lantai :</label>
                                         <input type="number" class="form-control" id="lantai" name="lantai">
+                                        <?php echo form_error('lantai', '<span class=" text-small text-danger"><small>', '</small></span>') ?>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group text-white">
                                         <label>No :</label>
                                         <input type="number" class="form-control" id="no" name="no">
+                                        <?php echo form_error('no', '<span class=" text-small text-danger"><small>', '</small></span>') ?>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="">Foto :</label>
-                                    <input type="file" class="form-control" name="foto">
                                 </div>
                             </div>
                             <div class="row">

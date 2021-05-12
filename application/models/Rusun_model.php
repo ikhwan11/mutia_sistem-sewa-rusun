@@ -2,6 +2,7 @@
 
 class Rusun_model extends CI_Model
 {
+    // main
     public function get_data($table)
     {
         return $this->db->get($table);
@@ -26,16 +27,25 @@ class Rusun_model extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+    // end main
 
-    // public function ambil_id_mobil($id){
-    // 	$hasil = $this->db->where('id_mobil', $id)->get('tb_mobil');
-    // 	if ($hasil->num_rows() > 0){
-    // 		return $hasil->result();
-    // 	}else{
-    // 		return false;
-    // 	}
-    // }
+    // pagination data
 
+    // ---- data unit ----
+    public function getUnit($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('id_rusun', $keyword);
+        }
+        return $this->db->get('tb_unit', $limit, $start)->result_array();
+    }
+
+    public function hitungUnit()
+    {
+        return $this->db->get('tb_unit')->num_rows();
+    }
+
+    // auth
     public function cek_login()
     {
         $username = set_value('username');
@@ -54,16 +64,27 @@ class Rusun_model extends CI_Model
         }
     }
 
-    public function update_password($where, $data, $table)
-    {
-        $this->db->where($where);
-        $this->db->update($table, $data);
-    }
+    // end auth
+
+    // public function update_password($where, $data, $table)
+    // {
+    //     $this->db->where($where);
+    //     $this->db->update($table, $data);
+    // }
 
     // public function downloadPembayaran($id)
     // {
     // 	$query = $this->db->get_where('tb_transaksi', array('id_rental' => $id));
     // 	return $query->row_array();
+    // }
+
+    // public function ambil_id_mobil($id){
+    // 	$hasil = $this->db->where('id_mobil', $id)->get('tb_mobil');
+    // 	if ($hasil->num_rows() > 0){
+    // 		return $hasil->result();
+    // 	}else{
+    // 		return false;
+    // 	}
     // }
 
 }

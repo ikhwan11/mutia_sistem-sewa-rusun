@@ -54,11 +54,11 @@
                     </li>
 
                     <li class="
-                    <?php if ($this->uri->segment(1) == "") {
+                    <?php if ($this->uri->segment(1) == "pelanggan") {
                         echo "active";
                     } ?>
                     ">
-                        <a href="<?= base_url(''); ?>">
+                        <a href="<?= base_url('pelanggan/'); ?>">
                             <i class="tim-icons icon-badge"></i>
                             <p>Kelola pelanggan</p>
                         </a>
