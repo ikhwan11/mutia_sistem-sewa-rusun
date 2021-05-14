@@ -6,13 +6,15 @@ class Front extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('front/templates/header');
+		$page['title'] = 'Beranda';
+		$this->load->view('front/templates/header', $page);
 		$this->load->view('front/beranda');
 		$this->load->view('front/templates/footer');
 	}
 	public function about()
 	{
-		$this->load->view('front/templates/header');
+		$page['title'] = 'About';
+		$this->load->view('front/templates/header', $page);
 		$this->load->view('front/about');
 		$this->load->view('front/templates/footer');
 	}

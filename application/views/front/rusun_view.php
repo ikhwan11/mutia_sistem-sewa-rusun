@@ -4,27 +4,7 @@
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate pb-5 text-center">
                 <p class="breadcrumbs"><span class="mr-2"><a href="<?= base_url('front/'); ?>">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Rusun <i class="ion-ios-arrow-forward"></i></span></p>
-                <h1 class="mb-3 bread">Choose <br>Your Location</h1>
-                <div class="text text-center">
-                    <form action="#" class="search-location mt-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 align-items-end">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <select type="text" class="form-control" placeholder="Search location">
-                                            <option value="1">Rusun Sekupang</option>
-                                            <option value="2">Rusun Tanjung Ucang</option>
-                                            <option value="3">Rusun Muka Kuning</option>
-                                            <option value="4">Rusun Kabil</option>
-                                            <option value="5">Rusun Batu Ampar</option>
-                                        </select>
-                                        <button><span class="ion-ios-search"></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <h1 class="mb-3 bread">Choose <br>Dream House</h1>
             </div>
         </div>
     </div>
@@ -32,29 +12,65 @@
 
 <section class="ftco-section">
     <div class="container">
+        <p>Pilih wilayah :</p>
         <div class="row">
             <div class="col-md-4">
-                <div class="property-wrap ftco-animate">
-                    <a href="<?= base_url('rusun/rusun_detail'); ?>" class="img" style="background-image: url(<?= base_url('assets/frontend/'); ?>images/work-1.jpg);"></a>
-                    <div class="text">
-                        <p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-                        <ul class="property_list">
-                            <li><span>kamar :</span>3</li><br>
-                            <li><span>Bed :</span>2 kasur tingkat</li><br>
-                            <li><span>AC :</span>non-ac</li><br>
-                            <li><span>Kamar mandi :</span>dalam</li>
-                            <li><span>dapur :</span>dalam</li>
-                        </ul>
-                        <h3><a href="<?= base_url('rusun/rusun_detail'); ?>">The Blue Sky Home</a></h3>
-                        <span class="location">Oakland</span>
-                        <a href="<?= base_url('rusun/rusun_detail'); ?>" class="d-flex align-items-center justify-content-center btn-custom">
-                            <span class="ion-ios-link"></span>
-                        </a>
+                <form action="" method="POST">
+                    <div class="input-group mb-3">
+                        <select type="number" class="form-control" name="keyword">
+                            <option value="">--Tentukan wilayah--</option>
+                            <option value="1" class="text-dark">Rusun Sekupang</option>
+                            <option value="2" class="text-dark">Rusun Tanjung Ucang</option>
+                            <option value="3" class="text-dark">Rusun Muka Kuning</option>
+                            <option value="4" class="text-dark">Rusun Kabil</option>
+                            <option value="5" class="text-dark">Rusun Batu Ampar</option>
+                        </select>
+                        <div class="input-group-append">
+                            <input class="btn btn-primary btn-sm" type="submit" name="submit">
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <div class="row mt-5">
+        <span class="text-danger">Result : <?= $total_rows; ?></span>
+        <div class="row">
+            <?php foreach ($unit as $u) : ?>
+                <div class="col-md-4">
+                    <div class="property-wrap ftco-animate">
+                        <a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>" class="img" style="background-image: url(<?= base_url('assets/frontend/'); ?>images/work-1.jpg);"></a>
+                        <div class="text">
+                            <p class="price"><span class="orig-price"> Rp. <?= number_format($u['harga'], 0, ',', '.'); ?><small>/Bln</small></span></p>
+                            <ul class="property_list">
+                                <li><span>kamar :</span><?= $u['kamar']; ?></li><br>
+                                <li><span>Bed :</span><?= $u['bed']; ?> kasur tingkat</li><br>
+                                <li><span>AC :</span><?= $u['ac']; ?></li><br>
+                                <li><span>Kamar mandi :</span><?= $u['kamar_mandi']; ?></li>
+                                <li><span>dapur :</span><?= $u['dapur']; ?></li>
+                            </ul>
+
+                            <?php if ($u['id_rusun'] == '1') { ?>
+                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Sekupang</a></h3>
+                            <?php } else if ($u['id_rusun'] == '2') { ?>
+                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Tanjung Ucang</a></h3>
+                            <?php } else if ($u['id_rusun'] == '3') { ?>
+                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Muka Kuning</a></h3>
+                            <?php } else if ($u['id_rusun'] == '4') { ?>
+                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Kabil</a></h3>
+                            <?php } else { ?>
+                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Batu Ampar</a></h3>
+                            <?php } ?>
+
+
+                            <span class="location">Lantai <?= $u['lantai']; ?></span>
+                            <a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>" class="d-flex align-items-center justify-content-center btn-custom">
+                                <span class="ion-ios-link"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <!-- <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
@@ -68,6 +84,9 @@
                     </ul>
                 </div>
             </div>
+        </div> -->
+        <div class="col">
+            <?= $this->pagination->create_links();; ?>
         </div>
     </div>
 </section>
