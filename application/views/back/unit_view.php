@@ -37,8 +37,8 @@
                                     <th>Wilayah</th>
                                     <th>Tipe</th>
                                     <th>Lantai</th>
-                                    <th>No unit</th>
                                     <th>Status</th>
+                                    <th>aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +69,6 @@
 
                                         <td>Type <?= $u['type']; ?></td>
                                         <td>Lantai <?= $u['lantai']; ?></td>
-                                        <td>No <?= $u['lantai']; ?></td>
                                         <?php if ($u['status'] == 'Kosong') { ?>
                                             <td>
                                                 <p style="color:crimson"><?= $u['status']; ?></p>
@@ -79,6 +78,11 @@
                                                 <p style="color:chartreuse"><?= $u['status']; ?></p>
                                             </td>
                                         <?php } ?>
+
+                                        <td>
+                                            <a href="<?= base_url('unit/detail/') . $u['id_unit']; ?>" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="<?= base_url('unit/update/') . $u['id_unit']; ?>" class="btn btn-sm btn-success">Edit</a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

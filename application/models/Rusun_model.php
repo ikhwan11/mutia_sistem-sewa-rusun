@@ -78,13 +78,13 @@ class Rusun_model extends CI_Model
     // 	return $query->row_array();
     // }
 
-    // public function ambil_id_mobil($id){
-    // 	$hasil = $this->db->where('id_mobil', $id)->get('tb_mobil');
-    // 	if ($hasil->num_rows() > 0){
-    // 		return $hasil->result();
-    // 	}else{
-    // 		return false;
-    // 	}
-    // }
-
+    public function ambil_id_unit($id)
+    {
+        $hasil = $this->db->where('id_unit', $id)->get('tb_unit');
+        if ($hasil->num_rows() > 0) {
+            return $hasil->result_array();
+        } else {
+            return false;
+        }
+    }
 }

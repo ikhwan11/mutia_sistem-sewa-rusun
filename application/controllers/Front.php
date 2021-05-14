@@ -16,18 +16,4 @@ class Front extends CI_Controller
 		$this->load->view('front/about');
 		$this->load->view('front/templates/footer');
 	}
-
-	// rusun
-	public function rusun()
-	{
-		$this->load->view('front/templates/header');
-		$this->load->view('front/rusun');
-		$this->load->view('front/templates/footer');
-	}
-	public function rusun_detail()
-	{
-		$this->load->view('front/templates/header');
-		$this->load->view('front/rusun_detail');
-		$this->load->view('front/templates/footer');
-	}
 }

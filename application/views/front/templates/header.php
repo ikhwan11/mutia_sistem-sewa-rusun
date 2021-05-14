@@ -39,7 +39,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="<?= base_url('front/'); ?>" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="<?= base_url('front/about'); ?>" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="<?= base_url('front/rusun'); ?>" class="nav-link">Rusun</a></li>
+                    <li class="nav-item"><a href="<?= base_url('rusun/'); ?>" class="nav-link">Rusun</a></li>
                     <li class="nav-item"><a href="<?= base_url('auth/'); ?>" class="nav-link">Login</a></li>
                 </ul>
             </div>

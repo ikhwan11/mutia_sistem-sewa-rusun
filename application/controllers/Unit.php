@@ -43,7 +43,7 @@ class Unit extends CI_Controller
     public function tambah()
     {
         $data = array(
-            'rusun' => $this->rusun_model->get_data('tb_rusun')->result_array(),
+            'harga' => $this->rusun_model->get_data('tb_harga')->result_array(),
         );
         $page['title'] = 'Kelola unit-Tambah unit';
         $this->load->view('back/templates/header', $page);
@@ -54,40 +54,123 @@ class Unit extends CI_Controller
 
     public function tambah_aksi()
     {
-        $this->_rules();
+        $id_rusun                 = $this->input->post('wilayah');
+        $type              = $this->input->post('type');
+        $lantai               = $this->input->post('lantai');
+        $harga                = $this->input->post('harga');
+        $ac                = $this->input->post('ac');
+        $kamar_mandi                = $this->input->post('kamar_mandi');
+        $dapur                = $this->input->post('dapur');
+        $bed                = $this->input->post('bed');
+        $lemari                = $this->input->post('lemari');
+        $kamar                = $this->input->post('kamar');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->tambah();
-        } else {
-            $id_rusun                 = $this->input->post('wilayah');
-            $type              = $this->input->post('type');
-            $lantai               = $this->input->post('lantai');
-            $no_unit                = $this->input->post('no');
+        $data = array(
+            'id_rusun' => $id_rusun,
+            'type' => $type,
+            'lantai' => $lantai,
+            'jml_unit' => 1,
+            'status' => 'Kosong',
+            'harga' => (int)$harga,
+            'ac' => $ac,
+            'kamar_mandi' => $kamar_mandi,
+            'dapur' => $dapur,
+            'bed' => (int)$bed,
+            'lemari' => (int)$lemari,
+            'kamar' => (int)$kamar,
+        );
 
-            $data = array(
-                'id_rusun' => $id_rusun,
-                'type' => $type,
-                'lantai' => $lantai,
-                'no_unit' => $no_unit,
-                'jml_unit' => 1,
-                'status' => 'Kosong',
-            );
+        $this->rusun_model->insert_data($data, 'tb_unit');
 
-            $this->rusun_model->insert_data($data, 'tb_unit');
-
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 				  Tambah unit berhasil!
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </button>
 				</div>');
-            redirect('unit/');
-        }
+        redirect('unit/');
     }
 
-    public function _rules()
+    // update
+    public function update($id)
     {
-        $this->form_validation->set_rules('no', 'No Unit', 'required', array('required' => '{field} tidak boleh kosong!'));
-        $this->form_validation->set_rules('lantai', 'Lantai', 'required', array('required' => '{field} tidak boleh kosong!'));
+        $data = array(
+            'unit' => $this->rusun_model->ambil_id_unit($id),
+        );
+        $page['title'] = 'Kelola unit-Tambah unit';
+        $this->load->view('back/templates/header', $page);
+        $this->load->view('back/templates/navbar');
+        $this->load->view('back/unit_edit', $data);
+        $this->load->view('back/templates/footer');
+    }
+
+    public function update_aksi()
+    {
+        $id               = $this->input->post('id');
+        $id_rusun                 = $this->input->post('wilayah');
+        $type              = $this->input->post('type');
+        $lantai               = $this->input->post('lantai');
+        $harga                = $this->input->post('harga');
+        $ac                = $this->input->post('ac');
+        $kamar_mandi                = $this->input->post('kamar_mandi');
+        $dapur                = $this->input->post('dapur');
+        $bed                = $this->input->post('bed');
+        $lemari                = $this->input->post('lemari');
+        $kamar                = $this->input->post('kamar');
+
+        $data = array(
+            'id_rusun' => $id_rusun,
+            'type' => $type,
+            'lantai' => $lantai,
+            'jml_unit' => 1,
+            'status' => 'Kosong',
+            'harga' => (int)$harga,
+            'ac' => $ac,
+            'kamar_mandi' => $kamar_mandi,
+            'dapur' => $dapur,
+            'bed' => (int)$bed,
+            'lemari' => (int)$lemari,
+            'kamar' => (int)$kamar,
+        );
+        $where = array(
+            'id_unit' => $id
+        );
+
+        $this->rusun_model->update_data('tb_unit', $data, $where);
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  Update unit berhasil!
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>');
+        redirect('unit/');
+    }
+
+    // delete
+    public function delete($id)
+    {
+        $where = array('id_unit' => $id);
+        $this->rusun_model->delete_data($where, 'tb_unit');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				  Data unit berhasil dihapus!.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>');
+        redirect('unit/');
+    }
+
+    // detail
+    public function detail($id)
+    {
+        $data = array(
+            'unit' => $this->rusun_model->ambil_id_unit($id),
+        );
+        $page['title'] = 'Kelola unit-Tambah unit';
+        $this->load->view('back/templates/header', $page);
+        $this->load->view('back/templates/navbar');
+        $this->load->view('back/unit_detail', $data);
+        $this->load->view('back/templates/footer');
     }
 }
