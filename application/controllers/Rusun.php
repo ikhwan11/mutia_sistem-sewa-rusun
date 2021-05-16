@@ -49,4 +49,63 @@ class Rusun extends CI_Controller
         $this->load->view('front/rusun_detail', $data);
         $this->load->view('front/templates/footer');
     }
+
+    public function sewa($id)
+    {
+        $data = array(
+            'unit' => $this->rusun_model->ambil_id_unit($id),
+        );
+        $page['title'] = 'Detail Rusun';
+        $this->load->view('front/templates/header', $page);
+        $this->load->view('front/rusun_form', $data);
+        $this->load->view('front/templates/footer');
+    }
+
+    public function tambah_sewa()
+    {
+        $id_unit        = $this->input->post('id_unit');
+        $nama           = $this->input->post('nama');
+        $tml            = $this->input->post('tml');
+        $tgl            = $this->input->post('tgl');
+        $no_hp          = $this->input->post('no_hp');
+        $email          = $this->input->post('email');
+        $alamat         = $this->input->post('alamat');
+        $kerja          = $this->input->post('kerja');
+        $berkas         = $_FILES['berkas']['name'];
+
+        if ($berkas) {
+            $config['upload_path']     = './assets/berkas_upload/';
+            $config['allowed_types']    = 'pdf';
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('berkas')) {
+                echo " Gagal di Upload!";
+            } else {
+                $berkas = $this->upload->data("file_name");
+            }
+        }
+
+        $data = array(
+            'id_unit' => $id_unit,
+            'nama' => $nama,
+            'tempat_lahir' => $tml,
+            'tanggal_lahir' => $tgl,
+            'no_hp' => $no_hp,
+            'email' => $email,
+            'alamat' => $alamat,
+            'tempat_kerja' => $kerja,
+            'berkas' => $berkas,
+        );
+
+        $this->rusun_model->insert_data($data, 'tb_sewa');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  pengajuan berhasil, data anda akan segera di proses. kabar selanjutnya akan dikirm melalui E-mail, terima kasih.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>');
+        redirect('rusun/');
+    }
 }

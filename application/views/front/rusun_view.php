@@ -12,6 +12,7 @@
 
 <section class="ftco-section">
     <div class="container">
+        <?php echo $this->session->flashdata('pesan') ?>
         <p>Pilih wilayah :</p>
         <div class="row">
             <div class="col-md-4">
@@ -40,25 +41,56 @@
                         <a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>" class="img" style="background-image: url(<?= base_url('assets/frontend/'); ?>images/work-1.jpg);"></a>
                         <div class="text">
                             <p class="price"><span class="orig-price"> Rp. <?= number_format($u['harga'], 0, ',', '.'); ?><small>/Bln</small></span></p>
-                            <ul class="property_list">
-                                <li><span>kamar :</span><?= $u['kamar']; ?></li><br>
-                                <li><span>Bed :</span><?= $u['bed']; ?> kasur tingkat</li><br>
-                                <li><span>AC :</span><?= $u['ac']; ?></li><br>
-                                <li><span>Kamar mandi :</span><?= $u['kamar_mandi']; ?></li>
-                                <li><span>dapur :</span><?= $u['dapur']; ?></li>
-                            </ul>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Kamar</td>
+                                        <td>:</td>
+                                        <td><?= $u['kamar']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>AC</td>
+                                        <td>:</td>
+                                        <td><?= $u['ac']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kamar Mandi</td>
+                                        <td>:</td>
+                                        <td><?= $u['kamar_mandi']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dapur</td>
+                                        <td>:</td>
+                                        <td><?= $u['dapur']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <?php if ($u['status'] == 'Kosong') { ?>
+                                            <td>Status</td>
+                                            <td>:</td>
+                                            <td style="color: crimson;"><?= $u['status']; ?></td>
+                                        <?php } else { ?>
+                                            <td>Status</td>
+                                            <td>:</td>
+                                            <td style="color: chartreuse;"><?= $u['status']; ?></td>
+                                        <?php } ?>
 
-                            <?php if ($u['id_rusun'] == '1') { ?>
-                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Sekupang</a></h3>
-                            <?php } else if ($u['id_rusun'] == '2') { ?>
-                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Tanjung Ucang</a></h3>
-                            <?php } else if ($u['id_rusun'] == '3') { ?>
-                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Muka Kuning</a></h3>
-                            <?php } else if ($u['id_rusun'] == '4') { ?>
-                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Kabil</a></h3>
-                            <?php } else { ?>
-                                <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Batu Ampar</a></h3>
-                            <?php } ?>
+                                    </tr>
+                                </tbody>
+                            </table><br>
+                            <div>
+                                <?php if ($u['id_rusun'] == '1') { ?>
+                                    <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Sekupang</a></h3>
+                                <?php } else if ($u['id_rusun'] == '2') { ?>
+                                    <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Tanjung Ucang</a></h3>
+                                <?php } else if ($u['id_rusun'] == '3') { ?>
+                                    <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Muka Kuning</a></h3>
+                                <?php } else if ($u['id_rusun'] == '4') { ?>
+                                    <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Kabil</a></h3>
+                                <?php } else { ?>
+                                    <h3><a href="<?= base_url('rusun/rusun_detail/') . $u['id_unit']; ?>">Rusun Batu Ampar</a></h3>
+                                <?php } ?>
+                            </div>
+
 
 
                             <span class="location">Lantai <?= $u['lantai']; ?></span>

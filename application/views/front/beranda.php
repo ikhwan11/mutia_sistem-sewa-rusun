@@ -90,7 +90,7 @@
 		<div class="row justify-content-start mb-5">
 			<div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
 				<span class="subheading">Work flow</span>
-				<h2 class="mb-3">Bagaimana cara menyewa rusun?</h2>
+				<h2 class="mb-3">4 langkah mudah menyewa rusun</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -100,8 +100,8 @@
 						<div class="media block-6 services services-2">
 							<div class="media-body py-md-4 text-center">
 								<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
-								<h3>Evaluate Property</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+								<h3>Choose</h3>
+								<p>Pilih rusun yang sesuai dengan minat anda.</p>
 							</div>
 						</div>
 					</div>
@@ -109,8 +109,8 @@
 						<div class="media block-6 services services-2">
 							<div class="media-body py-md-4 text-center">
 								<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
-								<h3>Meet Your Agent</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+								<h3>Budget</h3>
+								<p>sesuaikan dengan budget yang anda miliki.</p>
 							</div>
 						</div>
 					</div>
@@ -118,8 +118,8 @@
 						<div class="media block-6 services services-2">
 							<div class="media-body py-md-4 text-center">
 								<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
-								<h3>Close the Deal</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+								<h3>Data</h3>
+								<p>isi form dan berkas yang diperlukan melalui website.</p>
 							</div>
 						</div>
 					</div>
@@ -127,8 +127,8 @@
 						<div class="media block-6 services services-2">
 							<div class="media-body py-md-4 text-center">
 								<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
-								<h3>Have Your Property</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+								<h3>Pay</h3>
+								<p>Lakukan proses adminstrasi pembayarn dan unit siap ditempati</p>
 							</div>
 						</div>
 					</div>

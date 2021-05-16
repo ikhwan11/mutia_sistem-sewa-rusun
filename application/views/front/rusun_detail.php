@@ -42,9 +42,11 @@
                     <div class="bd-example bd-example-tabs">
                         <div class="d-flex justify-content-center">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Features</a>
+                                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Fasilitas tersedia</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Syarat dan ketentuan</a>
+                                </li>
                                 </li>
                             </ul>
                         </div>
@@ -54,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                     </div>
-                                    <div class="col-md-4 text-center">
+                                    <div class="col-md-4">
                                         <ul class="features">
                                             <li class="check"><span class="ion-ios-checkmark"></span>Kamar : <?= $u['kamar']; ?> Kamar</li>
                                             <li class="check"><span class="ion-ios-checkmark"></span>Ac : <?= $u['ac']; ?></li>
@@ -62,18 +64,30 @@
                                             <li class="check"><span class="ion-ios-checkmark"></span>Dapur : <?= $u['dapur']; ?></li>
                                             <li class="check"><span class="ion-ios-checkmark"></span>Bed : <?= $u['bed']; ?> Kasur Tingkat</li>
                                         </ul>
+                                        <p><span><small class="text-warning"> *untuk melanjutkan penyewaan terdapat di syarat dan ketentuan</small></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Persyaratan menyewa rusun</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title">Mohon perhatikan lengkapi syarat sebagai berikut untuk menyewa</h6>
+                                        <p class="card-text">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">KTP asli</li>
+                                            <li class="list-group-item">surat keterangan kerja</li>
                                         </ul>
-                                        </ul>
+                                        </p>
+                                        <a href="<?= base_url('rusun/sewa/') . $u['id_unit']; ?>" class="btn btn-primary btn-lg">Lanjutkan</a>
+                                        <span><small class="text-warning"> * tekan tombol lanjutkan untuk melakukan penyewaan rusun</small></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <a href="" class="btn btn-primary btn-lg">Ajukan penyewaan</a>
                 </div>
             </div>
         <?php endforeach; ?>
