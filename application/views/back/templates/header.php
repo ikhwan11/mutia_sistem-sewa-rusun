@@ -53,14 +53,26 @@
                         </a>
                     </li>
 
+
                     <li class="
-                    <?php if ($this->uri->segment(1) == "pelanggan") {
+                    <?php if ($this->uri->segment(1) == "form") {
                         echo "active";
                     } ?>
                     ">
-                        <a href="<?= base_url('pelanggan/'); ?>">
+                        <a href="<?= base_url('form/'); ?>">
+                            <i class="tim-icons icon-paper"></i>
+                            <p>Formulir</p>
+                        </a>
+                    </li>
+
+                    <li class="
+                    <?php if ($this->uri->segment(1) == "penyewa") {
+                        echo "active";
+                    } ?>
+                    ">
+                        <a href="<?= base_url('penyewa/'); ?>">
                             <i class="tim-icons icon-badge"></i>
-                            <p>Kelola pelanggan</p>
+                            <p>Data Penyewa</p>
                         </a>
                     </li>
 

@@ -45,6 +45,26 @@ class Rusun_model extends CI_Model
         return $this->db->get('tb_unit')->num_rows();
     }
 
+    // ---- data formulir ----
+    public function getFormulir($limit, $start)
+    {
+        return $this->db->get('tb_pengajuan_sewa', $limit, $start)->result_array();
+    }
+
+    public function hitungFormulir()
+    {
+        return $this->db->get('tb_pengajuan_sewa')->num_rows();
+    }
+
+    // data penyewa
+    public function getPenyewa($limit, $start, $keyword = null)
+    {
+        if ($keyword) {
+            $this->db->like('nama', $keyword);
+        }
+        return $this->db->get('tb_penyewa', $limit, $start)->result_array();
+    }
+
     // auth
     public function cek_login()
     {

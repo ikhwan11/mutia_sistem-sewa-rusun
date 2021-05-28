@@ -98,7 +98,7 @@ class Rusun extends CI_Controller
             'berkas' => $berkas,
         );
 
-        $this->rusun_model->insert_data($data, 'tb_sewa');
+        $this->rusun_model->insert_data($data, 'tb_pengajuan_sewa');
 
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 				  pengajuan berhasil, data anda akan segera di proses. kabar selanjutnya akan dikirm melalui E-mail, terima kasih.

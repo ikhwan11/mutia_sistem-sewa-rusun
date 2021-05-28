@@ -81,8 +81,14 @@
                                             <li class="list-group-item">surat keterangan kerja</li>
                                         </ul>
                                         </p>
-                                        <a href="<?= base_url('rusun/sewa/') . $u['id_unit']; ?>" class="btn btn-primary btn-lg">Lanjutkan</a>
-                                        <span><small class="text-warning"> * tekan tombol lanjutkan untuk melakukan penyewaan rusun</small></span>
+                                        <div class="container">
+                                            <?php if ($u['status'] == 'Kosong') { ?>
+                                                <a href="<?= base_url('rusun/sewa/') . $u['id_unit']; ?>" class="btn btn-primary btn-lg">Lanjutkan</a>
+                                                <span><small class="text-warning"> * tekan tombol lanjutkan untuk melakukan penyewaan rusun</small></span>
+                                            <?php } else { ?>
+                                                <a href="#" class="btn btn-danger btn-lg disabled">Terisi</a>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
