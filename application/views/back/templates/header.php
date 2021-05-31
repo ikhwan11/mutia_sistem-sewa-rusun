@@ -25,12 +25,9 @@
 
 <body class="">
     <div class="wrapper">
-        <div class="sidebar">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
-            <div class="sidebar-wrapper">
-                <ul class="nav">
+        <div class=" d-print-none sidebar">
+            <div class="d-print-none sidebar-wrapper">
+                <ul class=" d-print-none nav">
                     <li class="
                     <?php if ($this->uri->segment(1) == "back") {
                         echo "active";
@@ -77,35 +74,13 @@
                     </li>
 
                     <li class="
-                    <?php if ($this->uri->segment(1) == "") {
+                    <?php if ($this->uri->segment(1) == "transaksi") {
                         echo "active";
                     } ?>
                     ">
-                        <a href="<?= base_url(''); ?>">
+                        <a href="<?= base_url('transaksi/'); ?>">
                             <i class="tim-icons icon-money-coins"></i>
                             <p>Transaksi</p>
-                        </a>
-                    </li>
-
-                    <li class="
-                    <?php if ($this->uri->segment(1) == "") {
-                        echo "active";
-                    } ?>
-                    ">
-                        <a href="<?= base_url(''); ?>">
-                            <i class="tim-icons icon-email-85"></i>
-                            <p>Kotak masuk</p>
-                        </a>
-                    </li>
-
-                    <li class="
-                    <?php if ($this->uri->segment(1) == "") {
-                        echo "active";
-                    } ?>
-                    ">
-                        <a href="<?= base_url(''); ?>">
-                            <i class="tim-icons icon-tv-2"></i>
-                            <p>Berita</p>
                         </a>
                     </li>
 
@@ -117,17 +92,6 @@
                         <a href="<?= base_url('user/'); ?>">
                             <i class="tim-icons icon-single-02"></i>
                             <p>Kelola User</p>
-                        </a>
-                    </li>
-
-                    <li class="
-                    <?php if ($this->uri->segment(1) == "") {
-                        echo "active";
-                    } ?>
-                    ">
-                        <a href="<?= base_url(''); ?>">
-                            <i class="tim-icons icon-single-copy-04"></i>
-                            <p>Laporan</p>
                         </a>
                     </li>
                 </ul>

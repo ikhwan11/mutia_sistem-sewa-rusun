@@ -86,18 +86,6 @@ class Rusun_model extends CI_Model
 
     // end auth
 
-    // public function update_password($where, $data, $table)
-    // {
-    //     $this->db->where($where);
-    //     $this->db->update($table, $data);
-    // }
-
-    // public function downloadPembayaran($id)
-    // {
-    // 	$query = $this->db->get_where('tb_transaksi', array('id_rental' => $id));
-    // 	return $query->row_array();
-    // }
-
     public function ambil_id_unit($id)
     {
         $hasil = $this->db->where('id_unit', $id)->get('tb_unit');
